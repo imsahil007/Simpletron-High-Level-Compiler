@@ -1,0 +1,8 @@
+1 input x
+2 print x
+3 goto 6
+4 input y
+5 print y
+6 print 69
+7 goto 5
+8 end

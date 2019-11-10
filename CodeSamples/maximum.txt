@@ -1,0 +1,10 @@
+1 input a
+2 let m=a
+3 input x
+4 if x<1 goto 9
+5 input a
+6 if m>a goto 3
+7 let m=a
+8 goto 3
+9 print m
+10 end
