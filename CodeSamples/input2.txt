@@ -1,5 +1,2 @@
-1 input x
-2 print x
-3 let y=3
-4 print y
-5 end
+1 goto 2
+2 end

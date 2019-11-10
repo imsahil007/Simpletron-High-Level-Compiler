@@ -1,6 +1,16 @@
+void checkvar(int SML[SIZE], int *var, int instructionCounter)		
+{
 
+	for(int i=0; i<= instructionCounter; i++)
+	{
+		if(SML[i]%SIZE == *var)
+		{	(*var)--;
+			return;
+		}
+	}
+}
 
-void addExpression(char *s, SymT symbolTable[SIZE] ,int *count, int *var,int SML[SIZE])		
+void addExpression(char *s, SymT symbolTable[SIZE] ,int *count, int *var,int SML[SIZE],int instructionCounter)		
 {
 
 	for(int j =0; j < strlen(s); j++)
@@ -13,6 +23,7 @@ void addExpression(char *s, SymT symbolTable[SIZE] ,int *count, int *var,int SML
 					{
 						symbolTable[*count].symbol = (int) ch;
 						symbolTable[*count].type = 'V';
+						checkvar(SML, var, instructionCounter);
 						symbolTable[*count].location = (*var);
 						(*var)--;
 						(*count)++;
@@ -35,6 +46,7 @@ void addExpression(char *s, SymT symbolTable[SIZE] ,int *count, int *var,int SML
 						
 						symbolTable[*count].symbol =  n;
 						symbolTable[*count].type = 'C';
+						checkvar(SML, var, instructionCounter);
 						symbolTable[*count].location = (*var);
 						SML[*var] = n;
 						(*var)--;
@@ -45,3 +57,4 @@ void addExpression(char *s, SymT symbolTable[SIZE] ,int *count, int *var,int SML
 			}
 	}
 }
+

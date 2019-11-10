@@ -7,6 +7,7 @@
 #include "secondpass/saveSMLfile.h"
 #include "getLocation.h"
 #include "firstpass/shlToSML.h"
+#include "secondpass/getFlag.h"
 #include "firstpass/fillSymbolTable.h"
 #include "firstpass/initialize.h"
 #include "firstpass/firstPass.h"

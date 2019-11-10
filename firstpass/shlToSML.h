@@ -12,9 +12,9 @@ void shlToSML(char Token[SIZE][5][LINESIZE], SymT symbolTable[SIZE],int SML[SIZE
 			}					// Token[i][2]  postfix expression
 			else if(!strcmp(Token[i][1],"input"))
 			{		opcode = READ;
-					for(int j=SIZE-1 ; j>=0 ; j--)
+					for(int j=0 ; j<SIZE ; j++)
 					{
-						   	if(symbolTable[j].symbol == (int)Token[i][2][0] )
+						   	if(symbolTable[j].symbol == (int)Token[i][2][0]  && symbolTable[j].type=='V')
 						   	{		operand = symbolTable[j].location;//comparing ASCII values
 									break;
 							}
@@ -28,6 +28,8 @@ void shlToSML(char Token[SIZE][5][LINESIZE], SymT symbolTable[SIZE],int SML[SIZE
 			else if(!strcmp(Token[i][1],"if"))		
 			{		int branchaddress = getLocation(symbolTable , myAtoi(Token[i][4]))  ;
 					postfix_SML(symbolTable, Token[i][2], SML , instructionCounter, flag, branchaddress , var );
+					if(branchaddress==-1)
+					flag[*instructionCounter-1]=0;
 										// Token[i][2]  postfix expression
 			}
 			else if(!strcmp(Token[i][1],"goto"))
@@ -44,7 +46,7 @@ void shlToSML(char Token[SIZE][5][LINESIZE], SymT symbolTable[SIZE],int SML[SIZE
 			}
 			else if(!strcmp(Token[i][1],"print"))
 			{	 	opcode = WRITE;
-					for(int j=SIZE-1 ; j>=0 ; j--)
+					for(int j=0 ; j<SIZE ; j++)
 					{
 							if((symbolTable[j].symbol == myAtoi(Token[i][2])
 								&& symbolTable[j].type=='C') ||

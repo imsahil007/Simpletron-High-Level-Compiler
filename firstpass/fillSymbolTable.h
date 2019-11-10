@@ -14,25 +14,18 @@ void fillSymbolTable(char Token[SIZE][5][LINESIZE], SymT symbolTable[SIZE],int S
 			count++;
 			//adding line number
 			if(!strcmp(Token[i][1],"rem"))
-			{		instructionCounter--;
+			{	
 					continue;
 			}
 			else if((!strcmp(Token[i][1],"input")) ||  (!strcmp(Token[i][1],"let")))
-					addExpression(Token[i][2], symbolTable , &count, &var, SML);
+					addExpression(Token[i][2], symbolTable , &count, &var, SML,instructionCounter);
 			else if(!strcmp(Token[i][1],"if"))	
-			{		addExpression(Token[i][2], symbolTable , &count, &var, SML);
-					if(i < myAtoi(Token[i][4]))
-							flag[i] = 0;
-					else if(myAtoi(Token[i][4]) > (*lastline))
-					{
-							printf("Error! Branching to line which is not valid. %d\n ",i+1);
-							exit(0);
-					}			
+			{		addExpression(Token[i][2], symbolTable , &count, &var, SML,instructionCounter);			
 			}
 			else if(!strcmp(Token[i][1],"goto"))
 			{	//address of goto is not resolved..2nd pass	
 					if(i < myAtoi(Token[i][2]))
-							flag[i] = 0;
+							flag[instructionCounter] = 0;
 					else if(i == myAtoi(Token[i][2]))
 					{
 							printf("Error! Infinite Loop at Line no. %d\n ",i+1);
@@ -45,7 +38,7 @@ void fillSymbolTable(char Token[SIZE][5][LINESIZE], SymT symbolTable[SIZE],int S
 					}
 			}
 			else if(!strcmp(Token[i][1],"print"))
-					addExpression(Token[i][2], symbolTable , &count, &var, SML);	
+					addExpression(Token[i][2], symbolTable , &count, &var, SML,instructionCounter);	
 			shlToSML(Token, symbolTable,SML, flag ,i, &count, &instructionCounter, &var );
 			
 	}	

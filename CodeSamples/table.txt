@@ -1,0 +1,8 @@
+1 input n
+2 let x=n
+3 let i=1
+4 print n
+5 let i=i+1
+6 let n=x*i
+7 if i<11 goto 4
+8 end

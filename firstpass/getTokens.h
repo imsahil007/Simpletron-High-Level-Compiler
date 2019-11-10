@@ -49,12 +49,12 @@ void addSpaces(char *tok, char expr[20], int lineno)
 void getTokens(FILE *input,char Token[SIZE][5][LINESIZE],int *lastline)
 {
        
-        char line[20], expr[20], del[2]=" ";
+        char line[LINESIZE], expr[LINESIZE], del[2]=" ";
         char *tok, *postfix;
        
         
         int j, i =*lastline;
-        while( fgets(line, 20, input))
+        while( fgets(line, LINESIZE, input))
         {   
                
                 j = 0;
@@ -63,7 +63,7 @@ void getTokens(FILE *input,char Token[SIZE][5][LINESIZE],int *lastline)
                 //line no
                 strcpy(Token[i][j++],tok);
                 if( myAtoi(Token[i][0]) <= myAtoi(Token[i-1][0]) && i>0)
-                {
+                {   //printf("%s",line );
                     printf("Syntax Error: Invalid line no. Line no. :%d\n", i+1);
                     exit(0);
                 }
@@ -112,6 +112,9 @@ void getTokens(FILE *input,char Token[SIZE][5][LINESIZE],int *lastline)
                 {
                         //..do nothing
                 }
+		      else if(!strcmp(Token[i][j-1], "rem\n") || !strcmp(Token[i][j-1], "rem"))
+		      {       //IGNORE REST OF COMMENT
+		      }
                 else{
                         printf("Syntax Error: Wrong keyword - %s  at Line no. :%d\n",Token[i][j-1], i+1);
                         exit(0);

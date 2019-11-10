@@ -1,8 +1,4 @@
-1 input x
-2 print x
-3 goto 6
-4 input y
-5 print y
-6 print 69
-7 goto 5
-8 end
+1 if 2==2 goto 3 
+2 print 0
+3 print 1
+4 end

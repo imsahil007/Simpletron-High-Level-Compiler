@@ -55,9 +55,7 @@ void postfix_SML(SymT * SymTbol_table, char *ps, int * mem,  int * instruct_coun
     ops_stack *st = NULL; //initializing our calculations stack
 
     int loc, loc1, loc2;
-    if(-1 == branch_symbol) //either the branch location hasn't been resolved in the main program, or it's not needed.
-        branch_symbol = 0; //so that we can directly return the instruction as branching to location 00 in such a case
-
+   
    
     //Tokenizing the postfix expression by using strtok will work only when the postfix_string
     //is stored as a charcter array. If passed as a pointer, first convert it to char array before proceeding.
@@ -179,8 +177,10 @@ void postfix_SML(SymT * SymTbol_table, char *ps, int * mem,  int * instruct_coun
                 *instruct_counter = *instruct_counter + 1;
                 mem[*instruct_counter] = 31 * SIZE + loc1;
                 *instruct_counter = *instruct_counter + 1;
-                if(branch_symbol != 0)
-                    flag[*instruct_counter] = -1; //implying that we have resolved the branching instruction for that line
+                if(branch_symbol != -1)
+                {   flag[*instruct_counter] = 0; 
+			branch_symbol=0;
+		}
 
                 mem[*instruct_counter] = 41 * SIZE + branch_symbol;
                 *instruct_counter = *instruct_counter + 1;
@@ -192,8 +192,10 @@ void postfix_SML(SymT * SymTbol_table, char *ps, int * mem,  int * instruct_coun
                 *instruct_counter = *instruct_counter + 1;
                 mem[*instruct_counter] = 31 * SIZE + loc1;
                 *instruct_counter = *instruct_counter + 1;
-                if(branch_symbol != 0)
-                    flag[*instruct_counter] = -1; //implying that we have resolved the branching instruction for that line
+                if(branch_symbol != -1)
+                {   flag[*instruct_counter] = 0; 
+			branch_symbol=0;
+		}
 
                 mem[*instruct_counter] = 41 * SIZE + branch_symbol;
                 *instruct_counter = *instruct_counter + 1;
@@ -206,8 +208,10 @@ void postfix_SML(SymT * SymTbol_table, char *ps, int * mem,  int * instruct_coun
                 mem[*instruct_counter] = 20 * SIZE + loc1;
                 *instruct_counter = *instruct_counter + 1;
                 mem[*instruct_counter] = 31 * SIZE + loc2;
-                if(branch_symbol != 0)
-                    flag[*instruct_counter] = -1; //implying that we have resolved the branching instruction for that line
+                if(branch_symbol == -1)
+                {   flag[*instruct_counter+1] = 0; 
+			branch_symbol=0;
+		}
 
                 *instruct_counter = *instruct_counter + 1;
                 mem[*instruct_counter] = 41 * SIZE + branch_symbol;
@@ -220,8 +224,10 @@ void postfix_SML(SymT * SymTbol_table, char *ps, int * mem,  int * instruct_coun
                 *instruct_counter = *instruct_counter + 1;
                 mem[*instruct_counter] = 31 * SIZE + loc2;
                 *instruct_counter = *instruct_counter + 1;
-                if(branch_symbol != 0)
-                    flag[*instruct_counter] = -1; //implying that we have resolved the branching instruction for that line
+                if(branch_symbol == -1)
+                {   flag[*instruct_counter] = 0; 
+			branch_symbol=0;
+		}
 
                 mem[*instruct_counter] = 41 * SIZE + branch_symbol;
                 *instruct_counter = *instruct_counter + 1;
@@ -235,8 +241,10 @@ void postfix_SML(SymT * SymTbol_table, char *ps, int * mem,  int * instruct_coun
                 *instruct_counter = *instruct_counter + 1;
                 mem[*instruct_counter] = 31 * SIZE + loc1;
                 *instruct_counter = *instruct_counter + 1;
-                if(branch_symbol != 0)
-                    flag[*instruct_counter] = -1; //implying that we have resolved the branching instruction for that line
+                if(branch_symbol == -1)
+                {   flag[*instruct_counter] = 0; 
+			branch_symbol=0;
+		}
 
                 mem[*instruct_counter] = 42 * SIZE + branch_symbol;
                 *instruct_counter = *instruct_counter + 1;
@@ -248,8 +256,10 @@ void postfix_SML(SymT * SymTbol_table, char *ps, int * mem,  int * instruct_coun
                 *instruct_counter = *instruct_counter + 1;
                 mem[*instruct_counter] = 31 * SIZE + loc2;
                 *instruct_counter = *instruct_counter + 1;
-                if(branch_symbol != 0)
-                    flag[*instruct_counter] = -1; //implying that we have resolved the branching instruction for that line
+                if(branch_symbol == -1)
+                {   flag[*instruct_counter] = 0; 
+			branch_symbol=0;
+		}
 
                 mem[*instruct_counter] = 41 * SIZE + branch_symbol;
                 *instruct_counter = *instruct_counter + 1;
@@ -265,5 +275,3 @@ void postfix_SML(SymT * SymTbol_table, char *ps, int * mem,  int * instruct_coun
         token = strtok(NULL, " ");
     }
 }
-
-
