@@ -43,7 +43,7 @@ gcc main.c -o main
 ## Assumptions:
 - All constants used in program are positive<br/>
 - We can still use negative constansts by writing:<br/>
-  ```
+```
 (0 - $constantvalue) in place of (-$constant)
 ```
 
