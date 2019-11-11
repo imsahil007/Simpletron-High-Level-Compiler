@@ -1,4 +1,0 @@
-1 if 2==2 goto 3 
-2 print 0
-3 print 1
-4 end

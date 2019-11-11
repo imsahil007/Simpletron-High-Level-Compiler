@@ -177,11 +177,10 @@ void postfix_SML(SymT * SymTbol_table, char *ps, int * mem,  int * instruct_coun
                 *instruct_counter = *instruct_counter + 1;
                 mem[*instruct_counter] = 31 * SIZE + loc1;
                 *instruct_counter = *instruct_counter + 1;
-                if(branch_symbol != -1)
+                if(branch_symbol == -1)
                 {   flag[*instruct_counter] = 0; 
 			branch_symbol=0;
 		}
-
                 mem[*instruct_counter] = 41 * SIZE + branch_symbol;
                 *instruct_counter = *instruct_counter + 1;
             }
@@ -192,7 +191,7 @@ void postfix_SML(SymT * SymTbol_table, char *ps, int * mem,  int * instruct_coun
                 *instruct_counter = *instruct_counter + 1;
                 mem[*instruct_counter] = 31 * SIZE + loc1;
                 *instruct_counter = *instruct_counter + 1;
-                if(branch_symbol != -1)
+                if(branch_symbol == -1)
                 {   flag[*instruct_counter] = 0; 
 			branch_symbol=0;
 		}

@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 #define SIZE 100
 
 
@@ -17,7 +17,7 @@
 #define BRANCHZERO 42
 #define HALT 43
 /*Macros for SML*/
-#define MAXRANGE 100000
+#define MAXRANGE (SIZE*SIZE*SIZE)
 void main(int argc , char *argv[])
 {
 
@@ -142,8 +142,9 @@ void main(int argc , char *argv[])
 			case HALT:		printf("Simpletron execution terminated\n");
 							return;
 			default:
-				printf("*** Invalid operator *** \n *** Simpletron execution abnormally terminated *** \n");
-		}
+				printf("*** Insufficient memory! *** \n *** Simpletron execution abnormally terminated *** \n");
+				exit(0);		
+			}
 	
 	}
 	fclose(f);

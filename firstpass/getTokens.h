@@ -18,7 +18,13 @@ void addSpaces(char *tok, char expr[20], int lineno)
 			        int n =0;
                    
 
-                    if(((tok[tkn_ind]>='a')&&(tok[tkn_ind]<='z'))||isoperator(tok[tkn_ind]))
+                    if(isoperator(tok[tkn_ind]))
+                    {       
+                        expr[exprsn_ind++] = tok[tkn_ind++];
+			if(tok[tkn_ind] != '=')
+				expr[exprsn_ind++] =' ';
+                    }
+		    else if((tok[tkn_ind]>='a')&&(tok[tkn_ind]<='z'))
                     {       
                         expr[exprsn_ind++] = tok[tkn_ind++];
                         expr[exprsn_ind++] =' ';
@@ -102,7 +108,7 @@ void getTokens(FILE *input,char Token[SIZE][5][LINESIZE],int *lastline)
                                 strcpy(Token[i][3],"goto");
                                 tok = strtok(NULL, del);
                                 strcpy(Token[i][4],tok);
-                        }  
+                        } 
                         postfix=infixToPostfix(expr);
                         strcpy(Token[i][2],postfix);
                         //goto
