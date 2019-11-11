@@ -27,22 +27,25 @@ gcc main.c -o main
     > The first two digits of the SML instruction are the operation code.
     > The last two digits of the SML instruction are the operand (i.e memory location of the operand)
 - Opcodes used:&nbsp;
-    > READ      : 10&nbsp;
-    > WRITE     : 11&nbsp;
-    > LOAD      : 20&nbsp;
-    > STORE     : 21&nbsp;
-    > ADD       : 10&nbsp;
-    > SUBTRACT  : 31&nbsp;
-    > DIVIDE    : 32&nbsp;
-    > MULTIPLY  : 33&nbsp;
-    > BRANCH    : 40&nbsp;
-    > BRANCHNEG : 41&nbsp;
-    > BRANCHZERO: 42&nbsp;
-    > HALT      : 43&nbsp;
+    > READ      : 10<br/>
+    > WRITE     : 11<br/>
+    > LOAD      : 20<br/>
+    > STORE     : 21<br/>
+    > ADD       : 10<br/>
+    > SUBTRACT  : 31<br/>
+    > DIVIDE    : 32<br/>
+    > MULTIPLY  : 33<br/>
+    > BRANCH    : 40<br/>
+    > BRANCHNEG : 41<br/>
+    > BRANCHZERO: 42<br/>
+    > HALT      : 43<br/>
 
 ## Assumptions:
-- All constants used in program are positive&nbsp;
-  > We can still use negative constansts by writing 0 - $constantvalue in place of -$constant&nbsp;
+- All constants used in program are positive<br/>
+- We can still use negative constansts by writing:<br/>
+  ```
+(0 - $constantvalue) in place of (-$constant)
+```
 
 
 ### Support:
