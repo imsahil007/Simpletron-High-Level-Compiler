@@ -22,29 +22,27 @@ gcc main.c -o main
 -	It has memory of size 100 words (can be extended) each word can be referenced by their location 00, 01, 02, ...., 99
 -	Word is a signed four digit decimal number such as +3364, -1293, +0007, -0001
 - SML instructions occupies one word of Simpletron's Memory
-    SML instructions will always be positive.
-    SML data can be positive or negative.
-    The first two digits of the SML instruction are the operation code.
-    The last two digits of the SML instruction are the operand (i.e memory location of the operand)
-- Opcodes used:
-     READ      : 10
-     WRITE     : 11
-     LOAD      : 20
-     STORE     : 21
-     ADD       : 10
-     SUBTRACT  : 31
-     DIVIDE    : 32
-     MULTIPLY  : 33
-     BRANCH    : 40
-     BRANCHNEG : 41
-     BRANCHZERO: 42
-     HALT      : 43
-
+    > SML instructions will always be positive.
+    > SML data can be positive or negative.
+    > The first two digits of the SML instruction are the operation code.
+    > The last two digits of the SML instruction are the operand (i.e memory location of the operand)
+- Opcodes used:&nbsp;
+    > READ      : 10&nbsp;
+    > WRITE     : 11&nbsp;
+    > LOAD      : 20&nbsp;
+    > STORE     : 21&nbsp;
+    > ADD       : 10&nbsp;
+    > SUBTRACT  : 31&nbsp;
+    > DIVIDE    : 32&nbsp;
+    > MULTIPLY  : 33&nbsp;
+    > BRANCH    : 40&nbsp;
+    > BRANCHNEG : 41&nbsp;
+    > BRANCHZERO: 42&nbsp;
+    > HALT      : 43&nbsp;
 
 ## Assumptions:
-- All constants used in program are positive
-  > We can still use negative constansts by writing 0 - $constantvalue in place of -$constant
-
+- All constants used in program are positive&nbsp;
+  > We can still use negative constansts by writing 0 - $constantvalue in place of -$constant&nbsp;
 
 
 ### Support:
