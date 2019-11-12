@@ -1,6 +1,8 @@
+#include "addbranchloc.h"
+
 void solveReferences(int flag[SIZE],int SML[SIZE],SymT symbolTable[SIZE], char Token[SIZE][5][LINESIZE])
 {	
-	int line_no, offset;
+	int line_no, offset, branch_loc;
 	for(int j=0;j<SIZE;j++)
 		{	if(flag[j] ==0)
 			{
@@ -11,16 +13,29 @@ void solveReferences(int flag[SIZE],int SML[SIZE],SymT symbolTable[SIZE], char T
 						//changing address
 
 				line_no = getFlag(j,symbolTable);
-				if(line_no==-1)
+				if(line_no != -1)			//normal goto
+				{	branch_loc = getLocation(symbolTable,myAtoi(Token[line_no-1][offset]));
+					addbranchloc(&SML[j], &flag[j], branch_loc);
+				}
+				else
 				{	
-					line_no = getFlag(j+2,symbolTable);		//2 jump statement ==
-					if(line_no == -1)
-						line_no	=getFlag(j+1,symbolTable);	//<= or >=
+					line_no = getFlag(j+1,symbolTable);		// in case of 2 jump statement like i.e. (!=)
+					if(line_no != -1)
+					{	branch_loc = getLocation(symbolTable,myAtoi(Token[line_no-1][offset]));
+						addbranchloc(&SML[j], &flag[j], branch_loc);
+						j++;
+						addbranchloc(&SML[j], &flag[j], branch_loc);
+					}
+					else						//consecutive 2 jump statements i.e (<=) or (>=)
+					{	line_no = getFlag(j+3,symbolTable);
+						branch_loc = getLocation(symbolTable,myAtoi(Token[line_no-1][offset]));
+						addbranchloc(&SML[j], &flag[j], branch_loc);
+						j += 3;
+						addbranchloc(&SML[j], &flag[j], branch_loc);
+					}				
 				}
 		
-				SML[j] = (SML[j] /SIZE);			
-				SML[j] =  SML[j] * SIZE + getLocation(symbolTable,myAtoi(Token[line_no-1][offset]));
-	
+					
 			}	
 		}
 

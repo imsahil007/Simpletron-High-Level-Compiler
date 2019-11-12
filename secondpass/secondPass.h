@@ -1,3 +1,4 @@
+
 int compressSML(int SML[SIZE])
 {
 	int lastinst, zeros = 0;
@@ -36,6 +37,7 @@ int compressSML(int SML[SIZE])
 
 void secondPass(int flag[SIZE],int SML[SIZE], FILE *output,char Token[SIZE][5][LINESIZE],SymT symbolTable[SIZE])
 {
+
 	solveReferences(flag, SML, symbolTable, Token);
 	int occupiedmemory =compressSML(SML);
 	//int occupiedmemory =100;

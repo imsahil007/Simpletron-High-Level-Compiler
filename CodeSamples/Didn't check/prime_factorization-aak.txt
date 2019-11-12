@@ -1,0 +1,17 @@
+1 rem print 1 prime 0 not prime
+2 input n
+3 if n<=1 goto 16
+4 if n==2 goto 14
+5 let i=1
+6 let i=i+1
+7 if i==n goto 12
+8 let x=n/i
+9 let x=n-x*i
+10 if x==0 goto 12
+11 goto 6
+12 print i
+13 let n=n/i
+14 if n<1 goto 16
+15 goto 8
+16 print n
+17 end

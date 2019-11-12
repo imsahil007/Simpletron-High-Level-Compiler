@@ -1,0 +1,28 @@
+1 input n
+2 let m=n
+3 let s=1
+4 let x=0
+5 let d=0
+6 let j=0
+7 if m<0 goto 10
+8 let d=d+1
+9 let j=j*10
+10 let m=m/10
+11 goto 7
+12 let j=j/10
+13 let m=n
+14 if m<0 goto 25
+15 let r=m/j
+16 if d<0 goto 20
+17 let s=s*r
+18 let d=d-1
+19 goto 16
+20 let x=x+s
+21 let s=1
+22 let p=p/10
+23 let j=j/10
+24 goto 14
+25 if x==n goto 27
+26 print 0
+27 print 1
+28 end

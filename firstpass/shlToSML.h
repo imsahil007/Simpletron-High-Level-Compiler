@@ -29,7 +29,7 @@ void shlToSML(char Token[SIZE][5][LINESIZE], SymT symbolTable[SIZE],int SML[SIZE
 			{		int branchaddress = getLocation(symbolTable , myAtoi(Token[i][4]))  ;
 					postfix_SML(symbolTable, Token[i][2], SML , instructionCounter, flag, branchaddress , var );
 					if(branchaddress==-1)
-					flag[*instructionCounter-1]=0;		
+					  flag[*instructionCounter-1]=0;	
 					// Token[i][2]  postfix expression
 			}
 			else if(!strcmp(Token[i][1],"goto"))

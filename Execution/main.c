@@ -41,10 +41,11 @@ void main(int argc , char *argv[])
 		return;
 	}	
 	int i = 0;
-	while( fscanf(f, "%d", &memory[ i++ ]) == 1);
+	while( fscanf(f, "%d", &i ) == 1)
+		fscanf(f, "%d", &memory[i]);
 	
 
-	while(instructionCounter != SIZE-1)
+	while(instructionCounter <= i)
 	{
 		
 
@@ -150,4 +151,3 @@ void main(int argc , char *argv[])
 	fclose(f);
 
 }
-

@@ -43,7 +43,7 @@ void addSpaces(char *tok, char expr[20], int lineno)
                     else
                     { 
                         printf("Syntax Error: Invalid identifier at Line no. %d\n", lineno );
-                         printf("%c \n", tok[tkn_ind] );
+                         printf("%s \n", tok );
                          exit(0);
                     }
                             

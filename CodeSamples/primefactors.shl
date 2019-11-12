@@ -1,0 +1,18 @@
+1 rem print prime factors
+2 input n
+3 rem input validation
+4 if n<2 goto 99
+5 let f=2
+6 rem loop begins
+7 if n==1 goto 99
+8 let k=n
+9 if k<f goto 22
+10 let k=k-f
+11 goto 9
+22 if k==0 goto 33
+24 let f=f+1
+25 goto 44
+33 print f
+34 let n=n/f
+44 goto 7
+99 end
