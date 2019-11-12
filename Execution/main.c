@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #define SIZE 100
 
 
@@ -28,18 +29,33 @@ void main(int argc , char *argv[])
 	int instructionRegister = 0;
 	int instructionCounter = 0;
 	int memory[SIZE]={};
+	FILE *f = NULL;
 	if(argc != 2)
 	{
 		printf("Invalid arguments!\n");
-		return;
+		exit(0);
 	}
-	FILE *f = NULL;
-	f = fopen(argv[1], "r");
+	else
+	{	
+		char s[4];
+		int  j = 0, i = strlen(argv[1])-3;
+		while( j!=3 )
+			s[j++] = argv[1][i++];
+		s[j] = '\0';
+		if(!strcmp(s,"SML") || !strcmp(s,"sml"))	
+			f = fopen(argv[1], "r");
+		else
+		{	printf("Invalid extension (.sml) !\n");
+			exit(0);
+		}		
+	}
+
 	if(f == NULL)
 	{
 		printf("Unable to open the file!\n");
-		return;
+		exit(0);
 	}	
+	
 	int i = 0;
 	while( fscanf(f, "%d", &i ) == 1)
 		fscanf(f, "%d", &memory[i]);
@@ -149,5 +165,4 @@ void main(int argc , char *argv[])
 	
 	}
 	fclose(f);
-
 }
