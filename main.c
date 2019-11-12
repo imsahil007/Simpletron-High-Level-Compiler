@@ -13,7 +13,6 @@ int main(int argc , char *argv[])
  	int SML[SIZE]={},lastline, instructionCounter;
  	SymT symbolTable[SIZE];
 	
-	int l;	
 	if(argc != 3)
 	{	printf("Invalid arguments!\n");
 		exit(0);

@@ -2,8 +2,8 @@ int getFileExtension(char *str, int whichfile)
 {
 	//whichfile = 0 for input 1 for output
 	char s[4];
-	int i = 0, j = 0;
-	while( str[i++] != '.');
+	int  j = 0, i = strlen(str)-3;
+	
 	while( j!=3 )
 		s[j++] = str[i++];
 	s[j] = '\0';

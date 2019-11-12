@@ -8,13 +8,13 @@ gcc main.c -o main
 ```
 Then, execute the code i.e. compile SHL code like this:
 ```
-./main $filename $outputfilename
+./main $filename.shl $outputfilename.sml
 ```
 
 Finally, for executing the SHL generated code, do this in Execution directory :
 ```
 gcc main.c -o main
-./main ../$outputfilename
+./main ../$outputfilename.sml
 ```
 
 ##  About
