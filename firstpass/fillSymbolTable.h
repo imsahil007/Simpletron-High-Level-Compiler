@@ -7,7 +7,7 @@ void fillSymbolTable(char Token[SIZE][5][LINESIZE], SymT symbolTable[SIZE],int S
 	// int loc = 0;	//location of inst
 	int var=SIZE -1;
 	for(int i =0; i <(*lastline); i++)		//loop for one line
-	{
+	{	
 			symbolTable[count].symbol =  myAtoi(Token[i][0]);
 			symbolTable[count].type = 'L';
 			symbolTable[count].location = instructionCounter;

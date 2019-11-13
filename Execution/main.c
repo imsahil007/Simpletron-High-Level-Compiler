@@ -76,7 +76,8 @@ void main(int argc , char *argv[])
 							scanf("%d", &memory[operand]);
 							if(memory[operand]/MAXRANGE != 0)
 							{
-								printf("*** memory overflow ***\n*** Simpletron execution abnormally terminated ***\n");
+								printf("**memory overflow**\n**Simpletron execution abnormally terminated ***\n");
+								printf("Instruction no.%d\n",instructionCounter);
 								return;
 							}
 							instructionCounter++;
@@ -97,6 +98,7 @@ void main(int argc , char *argv[])
 							if(accumulator/MAXRANGE != 0)
 							{
 								printf("*** accumulator overflow ***\n*** Simpletron execution abnormally terminated ***\n");
+								printf("Instruction no.%d\n",instructionCounter);
 								return;
 							}
 							instructionCounter++;
@@ -106,6 +108,7 @@ void main(int argc , char *argv[])
 							if(accumulator/MAXRANGE != 0)
 							{	
 								printf("*** accumulator underflow ***\n*** Simpletron execution abnormally terminated ***\n");
+								printf("Instruction no.%d\n",instructionCounter);
 								return;
 							}
 							instructionCounter++;
@@ -115,6 +118,7 @@ void main(int argc , char *argv[])
 							if(accumulator/MAXRANGE != 0)
 							{
 								printf("*** accumulator overflow ***\n*** Simpletron execution abnormally terminated ***\n");
+								printf("Instruction no.%d\n",instructionCounter);
 								return;
 							}
 							instructionCounter++;
@@ -124,11 +128,13 @@ void main(int argc , char *argv[])
 							if(memory[operand] == 0)
 							{
 									printf("\n*** Attempt to divide by zero ***\n*** Simpletron execution abnormally terminated ***\n");
+									printf("Instruction no.%d\n",instructionCounter);
 									return;
 							}
 							if(accumulator/MAXRANGE != 0)
 							{
 								printf("*** accumulator overflow ***\n*** Simpletron execution abnormally terminated ***\n");
+								printf("Instruction no.%d\n",instructionCounter);
 								return;
 							}
 							instructionCounter++;

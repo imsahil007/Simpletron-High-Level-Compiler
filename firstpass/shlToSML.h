@@ -66,5 +66,6 @@ void shlToSML(char Token[SIZE][5][LINESIZE], SymT symbolTable[SIZE],int SML[SIZE
 					operand=00;
 					SML[ (*instructionCounter)++ ] = (opcode * SIZE) + operand;
 			}
+			
 }
 		

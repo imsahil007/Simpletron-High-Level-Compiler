@@ -27,7 +27,7 @@ int main(int argc , char *argv[])
 			exit(0);
 		}
 		input = fopen(argv[1], "r");
-		output = fopen(argv[1], "w");
+		output = fopen(argv[2], "w");
 	}
 	
 	
@@ -36,7 +36,6 @@ int main(int argc , char *argv[])
 		printf("Unable to open the input file!");
 		exit(0);
     	}
-
     	initialize(symbolTable, flag, SML);
     	char Token[SIZE][5][LINESIZE] ;
   	firstPass(input, Token, symbolTable, SML, flag, &lastline );
