@@ -1,5 +1,5 @@
 
-#define SIZE 100
+#define SIZE 1000
 #define LINESIZE 40 
 
 

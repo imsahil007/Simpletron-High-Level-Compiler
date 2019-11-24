@@ -55,7 +55,7 @@ void addSpaces(char *tok, char expr[20], int lineno)
 void getTokens(FILE *input,char Token[SIZE][5][LINESIZE],int *lastline)
 {
        
-        char line[LINESIZE], expr[LINESIZE], del[2]=" ";
+        char line[LINESIZE], expr[LINESIZE], del[4]=" \n\0";
         char *tok, *postfix;
        
         
@@ -82,16 +82,21 @@ void getTokens(FILE *input,char Token[SIZE][5][LINESIZE],int *lastline)
                 tok = strtok(NULL, del);
          
                 if( !strcmp(Token[i][j-1], "let"))
-		        {
-			            addSpaces(tok,expr, i+1);
+		{
+			addSpaces(tok,expr, i+1);
                         postfix=infixToPostfix(expr);
                         strcpy(Token[i][j++],postfix);
-		        }
-		       else if(!strcmp(Token[i][j-1], "input")
+		}
+		else if(!strcmp(Token[i][j-1], "input")
                     || !strcmp(Token[i][j-1], "print") || !strcmp(Token[i][j-1], "goto")) 
                 {  
                         addSpaces(tok,expr, i+1);
                         strcpy(Token[i][j++],expr);
+			if( strlen(expr) > 2 &&  strcmp(Token[i][j-2], "goto") )
+			{
+				 printf("Syntax Error: Line Termination - %s  at Line no. :%s\n", expr, Token[i][0]);
+                         	 exit(0);
+			}
         
                 }
                 else if(!strcmp(Token[i][j-1], "if"))
@@ -118,14 +123,24 @@ void getTokens(FILE *input,char Token[SIZE][5][LINESIZE],int *lastline)
                 {
                         //..do nothing
                 }
-		      else if(!strcmp(Token[i][j-1], "rem\n") || !strcmp(Token[i][j-1], "rem"))
-		      {       //IGNORE REST OF COMMENT
-		      }
-                else{
+		else if(!strcmp(Token[i][j-1], "rem\n") || !strcmp(Token[i][j-1], "rem"))
+		{       //IGNORE REST OF COMMENT
+			 i++;   
+			 continue;
+		}
+                else
+		{
                         printf("Syntax Error: Wrong keyword - %s  at Line no. :%d\n",Token[i][j-1], i+1);
                         exit(0);
                 }
-    
+
+		char *empty = strtok(NULL,del);
+		if( empty != NULL )
+		{
+			 printf("Syntax Error: Line Termination - %s  at Line no. :%s\n", empty, Token[i][0]);
+                         exit(0);	
+		}
+
                 i++;     
 
                
