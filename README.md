@@ -4,11 +4,11 @@ Simpletron is a software based computer simulator which is capable of executing 
 
 To initialize this code, use a command like this:
 ```
-gcc main.c -o main
+make all
 ```
 Then, execute the code i.e. compile SHL code like this:
 ```
-./main $filename.shl $outputfilename.sml
+./compiler.o $filename $outputfilename
 ```
 
 Finally, for executing the SHL generated code, do this in Execution directory :
