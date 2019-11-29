@@ -1,3 +1,4 @@
+#include "header.h"
 void initialize(SymT symbolTable[SIZE], int flag[SIZE],int SML[SIZE])
 {
 	for(int i=0; i < SIZE; i++)

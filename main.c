@@ -1,10 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-#include "OtherFunctions/header.h"
-#include "OtherFunctions/functions.h"
-#include "OtherFunctions/getFileExtension.h"
+#include "header.h"
+int getFileExtension(char *str, int whichfile);
+void firstPass(FILE *input, char Token[SIZE][5][LINESIZE],SymT symbolTable[SIZE],int SML[SIZE],int flag[SIZE],int *lastline);
+void secondPass(int flag[SIZE],int SML[SIZE], FILE *output,char Token[SIZE][5][LINESIZE],SymT symbolTable[SIZE]);
+void initialize(SymT symbolTable[SIZE], int flag[SIZE],int SML[SIZE]);
 int main(int argc , char *argv[])
 {
 	FILE *input = NULL;

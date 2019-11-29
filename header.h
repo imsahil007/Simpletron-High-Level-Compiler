@@ -1,5 +1,5 @@
 
-#define SIZE 1000
+#define SIZE 100
 #define LINESIZE 40 
 
 
@@ -32,4 +32,9 @@ struct Stack
     int location; //this will store the memory location of the data that the program needs
     ops_stack * next;
 };
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 

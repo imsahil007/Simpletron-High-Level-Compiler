@@ -1,4 +1,7 @@
-
+#include "header.h"
+void addExpression(char *s, SymT symbolTable[SIZE] ,int *count, int *var,int SML[SIZE],int instructionCounter);
+int myAtoi(char *);
+void shlToSML(char Token[SIZE][5][LINESIZE], SymT symbolTable[SIZE],int SML[SIZE], int flag[SIZE] ,int i, int *count, int *instructionCounter,int *var);
 
 void fillSymbolTable(char Token[SIZE][5][LINESIZE], SymT symbolTable[SIZE],int SML[SIZE], int flag[SIZE], int *lastline)
 {

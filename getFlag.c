@@ -1,3 +1,4 @@
+#include "header.h"
 int getLineSymbolIndex(int val,SymT symbolTable[SIZE])
 {
 	int count = 0;

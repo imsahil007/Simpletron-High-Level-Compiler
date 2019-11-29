@@ -1,4 +1,6 @@
-#include <ctype.h>
+#include "header.h"
+int myAtoi(char *);
+char* infixToPostfix(char infx[]);
 int isoperator(char ch)
 {
     if( (ch == '+')||(ch == '-')||(ch == '*')||(ch == '/')||

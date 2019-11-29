@@ -1,4 +1,4 @@
-
+#include "header.h"
 int getLocation(struct tableEntry symbolTable[SIZE], int line_no)		
 {
 	//if flag[inst]=0 by default location will be 0

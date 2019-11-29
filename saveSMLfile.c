@@ -1,4 +1,4 @@
-
+#include "header.h"
 void saveSMLfile(int SML[SIZE], FILE *output,int occupiedmemory)
 {
 	

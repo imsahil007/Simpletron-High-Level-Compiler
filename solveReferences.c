@@ -1,4 +1,8 @@
-#include "addbranchloc.h"
+#include "header.h"
+void addbranchloc(int *SML,int *flag,int branch_loc);
+int getFlag(int index,SymT symbolTable[SIZE]);
+int myAtoi(char *);
+int getLocation(struct tableEntry symbolTable[SIZE], int line_no);
 
 void solveReferences(int flag[SIZE],int SML[SIZE],SymT symbolTable[SIZE], char Token[SIZE][5][LINESIZE])
 {	
@@ -40,4 +44,3 @@ void solveReferences(int flag[SIZE],int SML[SIZE],SymT symbolTable[SIZE], char T
 		}
 
 }
-

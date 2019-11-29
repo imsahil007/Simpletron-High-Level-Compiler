@@ -1,3 +1,4 @@
+#include "header.h"
 typedef struct stack Stack;
 struct stack
 {

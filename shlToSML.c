@@ -1,5 +1,7 @@
-
-
+#include "header.h"
+void postfix_SML(SymT * SymTbol_table, char *ps, int * mem,  int * instruct_counter, int * flag,  int branch_symbol, int * data_counter);
+int myAtoi(char *);
+int getLocation(struct tableEntry symbolTable[SIZE], int line_no);
 void shlToSML(char Token[SIZE][5][LINESIZE], SymT symbolTable[SIZE],int SML[SIZE], int flag[SIZE] ,int i, int *count, int *instructionCounter,int *var)
 {
 
@@ -68,4 +70,4 @@ void shlToSML(char Token[SIZE][5][LINESIZE], SymT symbolTable[SIZE],int SML[SIZE
 			}
 			
 }
-		
+				

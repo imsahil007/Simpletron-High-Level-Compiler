@@ -1,3 +1,5 @@
+#include "header.h"
+
 //the function that pushes a new element with location = loc at the top of our stack
 ops_stack * push(ops_stack * stHead, int loc)
 {

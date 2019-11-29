@@ -1,4 +1,4 @@
-
+#include "header.h"
 int myAtoi(char *str) 
 { 
     int res = 0; // Initialize result 

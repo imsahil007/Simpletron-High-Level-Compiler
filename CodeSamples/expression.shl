@@ -1,0 +1,9 @@
+1 rem evaluating expression
+2 input a
+3 input b
+4 if a+b<10 goto 7
+5 let c=a*a+b*b
+6 goto 8
+7 let c=a+b
+8 print c
+9 end

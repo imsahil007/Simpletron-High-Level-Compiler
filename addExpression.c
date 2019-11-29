@@ -1,3 +1,5 @@
+#include "header.h"
+int check(struct tableEntry symbolTable[SIZE], int variable, char type);
 void checkvar(int SML[SIZE], int *var, int instructionCounter)		
 {
 

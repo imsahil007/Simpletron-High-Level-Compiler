@@ -1,3 +1,4 @@
+#include "header.h"
 
 int check(struct tableEntry symbolTable[SIZE], int variable, char type)		
 {
@@ -9,6 +10,7 @@ int check(struct tableEntry symbolTable[SIZE], int variable, char type)
 	}
 	return 1;
 }
+
 
 
 

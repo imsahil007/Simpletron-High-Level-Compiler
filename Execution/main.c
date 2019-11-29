@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define SIZE 1000
+#define SIZE 100
 
 
 /*Macros for SML*/
@@ -18,7 +18,7 @@
 #define BRANCHZERO 42
 #define HALT 43
 /*Macros for SML*/
-#define MAXRANGE 10000
+#define MAXRANGE (SIZE*SIZE*SIZE)
 void main(int argc , char *argv[])
 {
 
@@ -64,7 +64,9 @@ void main(int argc , char *argv[])
 	while(instructionCounter <= i)
 	{
 		
+
 		instructionRegister = memory[instructionCounter];
+
 		opcode = instructionRegister / SIZE;
 		operand = instructionRegister % SIZE;
 

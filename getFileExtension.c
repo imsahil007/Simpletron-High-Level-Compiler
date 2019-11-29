@@ -1,3 +1,4 @@
+#include "header.h"
 int getFileExtension(char *str, int whichfile)
 {
 	//whichfile = 0 for input 1 for output
