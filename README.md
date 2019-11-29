@@ -6,7 +6,7 @@ To initialize this code, use a command like this:
 ```
 make all
 ```
-It will generate 'compiler.o' object file
+It will generate 'compiler.o' object file.
 Then, execute the code i.e. compile SHL code like this:
 ```
 ./compiler.o $filename $outputfilename
